@@ -11,14 +11,6 @@ jobs:
       - name: "dump github context"
         run: echo '${{ toJSON(github.event) }}' | jq
         shell: bash
-      - name: Render template
-        id: template
-        uses: chuhlomin/render-template@v1.4
-        with:
-          template: .github/comment-template.md
-          vars: |
-            foo: this
-            bar: that
 
       - name: Create comment
         uses: peter-evans/create-or-update-comment@v3
